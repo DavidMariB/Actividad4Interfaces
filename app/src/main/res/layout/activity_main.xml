@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@android:color/white"
     tools:context="com.davidmari.actividad4interfaces.MainActivity">
 
     <Button
@@ -14,7 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="30dp"
-        android:text="Fondo Rojo" />
+        android:text="Fondo Rojo"
+        android:onClick="changeBackground"/>
 
     <Button
         android:id="@+id/b2"
@@ -22,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="10dp"
-        android:text="Letras Negras" />
+        android:onClick="buttonColor"
+        android:text="Letras Negras"
+        android:textColor="@color/black" />
 
     <LinearLayout
         android:id="@+id/middle_layout"
@@ -46,32 +50,53 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="30dp"
-            android:text="Viva Luseiro"
+            android:text="Ay mi madre el texto oculto"
             android:visibility="invisible" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/middle_layout"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@android:color/white">
 
         <TextView
             android:id="@+id/long_press"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
-            android:text="Manten Pulsado"
             android:clickable="true"
-            android:onClick="elToast"/>
+            android:text="Manten Pulsado"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <RatingBar
-            android:id="@+id/rating"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="60dp"
-            android:layout_marginTop="20dp" />
+        <FrameLayout
+            android:id="@+id/rating_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:background="@color/white">
+
+            <RatingBar
+                android:id="@+id/stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="20dp" />
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="75dp"
+                android:text="[0/5]" />
+        </FrameLayout>
 
     </LinearLayout>
 
