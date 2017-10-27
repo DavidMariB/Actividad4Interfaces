@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView punt;
     private FrameLayout frame;
     private Button b1, b2;
+    private boolean background = true;
+    private boolean buttonColor = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,21 +68,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void changeBackground(View v) {
-        if (frame.getBackground().equals(R.color.white)) {
-            b1.setText("Fondo Rojo");
-            frame.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
-        } else if (frame.getBackground().equals(R.color.red)) {
+        if(background==true){
             b1.setText("Fondo Blanco");
-            frame.setBackgroundColor(ContextCompat.getColor(getApplicationContext(), R.color.white));
+            frame.setBackgroundColor(ContextCompat.getColor(getBaseContext(),R.color.red));
+        }else if(background==false){
+            b1.setText("Fondo Rojo");
+            frame.setBackgroundColor(ContextCompat.getColor(getBaseContext(),R.color.white));
         }
+        background=!background;
     }
 
     public void buttonColor(View v) {
-        int color = ContextCompat.getColor(getApplicationContext(), R.color.black);
-        if(b2.getTextColors().equals(color)){
-            b2.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
+        if(buttonColor==true){
+            b2.setText("Letras Negras");
+            b2.setTextColor(ContextCompat.getColor(getBaseContext(),R.color.red));
+        }else if(buttonColor==false){
+            b2.setText("Letras Rojas");
+            b2.setTextColor(ContextCompat.getColor(getBaseContext(),R.color.black));
         }
-
+        buttonColor=!buttonColor;
     }
 
 }
